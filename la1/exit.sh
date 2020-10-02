@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 function ERROR_arguments(){
-    echo -e 'ERROR ARGUMENTS'
+    echo "ERROR ARGUMENTS"
     exit -1
 }
 
 function ERROR_value(){
-    echo -e 'ERROR VALUE'
+    echo "ERROR VALUE IT SHOLD BE -256<x<256"
     exit -2
 }
 
@@ -31,5 +31,6 @@ function DO(){
     fi
 }
 
-check_correct$@
+echo !-exit-!
+check_correct $@
 DO $@

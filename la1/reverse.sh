@@ -1,32 +1,31 @@
 #! /usr/bin/env bash
 function ERROR_arguments(){
-    echo -e '\ERROR_arguments'
+    echo "ERROR ARGUMENTS"
     exit -1
 }
 
-function ERROR_ACCESS(){
-    echo -e 'ERROR_ACCESS'
+function ERROR_of_rights(){
+    echo "FIRST FILE IS NOT AVAILABLE"
     exit -2
 }
 
-function ERROR_NOTexist(){
-    echo -e 'NOT EXISTS'
+function ERROR_exist(){
+    echo "FIRST FILE IS NOT EXISTS"
     exit -2
 }
 
 function ERROR_diraccess(){
-    echo -e 'ERROR DIR ACCESS'
+    echo "SECOND FILE DIRECTORY IS NOT AVAILABLE"
     exit -3
 }
 
-function ERROR_Caccess(){
-    echo -e 'ERROR C ACCESS'
+function ERROR_creating_access(){
+    echo "ERROR CREATING DIRECTORY"
     exit -4
 }
 
 function ERROR_access(){
-    echo -e 'ERROR ACCEESS -5'
-    echo -en "\007"
+    echo "ERROR ACCESS"
     exit -5
 }
 
@@ -35,16 +34,16 @@ function check_correct(){
     then ERROR_arguments
     fi
     if ! [[ -e $2 ]]
-    then ERROR_NOTexist
+    then ERROR_exist
     fi 
     if ! [[ -r $2 ]]
-    then ERROR_ACCESS
+    then ERROR_of_rights
     fi
     if ! [[ -r "$(dirname $3)" ]]
     then ERROR_diraccess
     fi
     if ! [[ -w "$(dirname $3)" ]] && ! [[ -f "$3" ]]
-    then ERROR_Caccess
+    then ERROR_creating_access
     fi
     if [[ -f $3 ]] && ! [[ -w $3 ]]
     then ERROR_diraccess
@@ -55,6 +54,10 @@ function DO(){
         tac $2 > reverse2.txt
         echo > $3
         rev reverse2.txt > $3
-        rm reverse2.txt
-        echo SUCCESS
+        rm reverse.txt
+        echo "-SUCCESS-"
 }
+
+echo  !-revers-!
+check_correct $@
+DO $@

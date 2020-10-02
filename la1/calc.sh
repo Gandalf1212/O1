@@ -1,26 +1,25 @@
 #! /usr/bin/env bash
-
-function INCORRECT_request(){
-    echo -e '    \INCORRECT '
+function ERROR_inquiry(){
+    echo "INCORRECT INQUIRY"
     exit -1
 }
 
 function ERROR_arguments(){
-    echo -e '    \INCORRECT arguments'
+    echo "ERROR ARGUMENTS"
     exit -2
 }
 
 function ERROR_string(){
-    echo -e '    \ERROR string'
+    echo "ARGUMENT IS NOT INTEGER"
     exit -3
 }
 
 function ERROR_null_div(){
-    echo -e ' div on null'
+    echo "DIV ON NULL"
     exit -4
 }
 
-function checkZero(){
+function check_zero(){
     if [[ "$3" = "+0" || "$3" = "-0" ]]
     then $2 0 $4
     exit 0
@@ -49,50 +48,48 @@ function check_correct(){
 }
 
 function sum(){
- echo Task: $1 + $2
- echo Answer: $(( $1 + $2 ))
+ echo $1 + $2 = $(( $1 + $2 ))
 }
 
 function sub(){
- echo Task: $1 - $2
- echo Answer: $(( $1 - $2 ))
+ echo $1 - $2 = $(( $1 - $2 )) 
 }
 
 function mul(){
- echo Task: $1 '*' $2
- echo Answer: $(( $1 * $2 ))
+ echo $1 '*' $2 = $(( $1 * $2 ))
 }
 
 function div(){
- echo Task: $1 / $2
- echo Answer: $(( $1 / $2 ))
+ echo $1 / $2 = $(( $1 / $2 )) 
 }
 
 function DO(){
     case $2 in
 sum)
-    checkZero $@
+    check_zero $@
     check_correct $@
     sum $3 $4
     ;;
 sub)
-    checkZero $@
+    check_zero $@
     check_correct $@
     sub $3 $4
     ;;
 mul)   
-    checkZero $@
+    check_zero $@
     check_correct $@
     mul $3 $4
     ;;
 div)
-    checkZero $@
-    check_correctness $@
+    check_zero $@
+    check_correct $@
     div $3 $4
     ;;
 *)
-    INCORRECT_request
+    ERROR_inquiry
     ;;
 esac
 }
+
+echo "!-calc-!"
 DO $@

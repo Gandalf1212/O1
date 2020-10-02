@@ -3,7 +3,7 @@
 function check_correct(){
     if [ "$1" = "" ]
     then 
-    echo String size = 0
+    echo "String size = 0"
     exit 0
     fi
 }
@@ -14,11 +14,12 @@ function DO(){
     size=${#var}
     if [ -z $2 ]
     then
-    echo String size is "$size"
+    echo String size = "$size"
     exit 0
     fi
-    echo String size is $(( $size - 2 ))
+    echo String size = $(( $size - 2 ))
 }
 
+echo !-strlen-!
 check_correct "$1"
 DO "$1" $2

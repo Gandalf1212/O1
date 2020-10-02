@@ -1,35 +1,37 @@
 #! /usr/bin/env bash
+function ERROR_arguments(){
+    echo "ERROR ARGUMENTS"
+    exit -1
+}
 
-
-function FILE_FOUND(){
-    echo "File: $1.sh"
+function FILE_ERROR(){
+    echo "File: $1.sh  -  FILE NOT FOUND"
     exit -2
 }
 
-function ACCESS_ERROR(){
-    echo "File: $1.sh"
+function Access_ERROR(){
+    echo "File: $1.sh  -  ACCESS ERROR"
     exit -3
 }
-function ERROR_main(){
+
+function empty_main(){
     if [[ $1 = '' ]]
     then 
-    echo -e 'EMPTY'
+    echo "YOU ENTER EMTY ARGUMENT, TAB 'HELP' TO USE CLOSSARY"
     exit -4
     fi
 }
 
-
 function checkFile(){
     if ! [ -a $1.sh ] 
     then
-    FILE_FOUND $1
+    FILE_ERROR $1
     fi
     if ! [ -r $1.sh ]
     then 
     Acces_ERROR
     fi
 }
-
 
 function DO(){
     case $1 in
@@ -56,3 +58,20 @@ function DO(){
         ;;
     esac
 }
+
+empty_main $1
+checkFile $1
+if [ $1 = "strlen" ]
+then 
+    if ! [[ $3 = "int" ]]
+    then
+        if ! [[ $# -eq 2 ]]
+        then 
+        ERROR_arguments
+        fi
+        ./strlen.sh "$2"
+        exit 0
+    fi
+./strlen.sh "$2" $3
+fi
+DO $@

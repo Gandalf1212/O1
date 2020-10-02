@@ -1,36 +1,77 @@
 #! /usr/bin/env bash
 function ERROR_arguments(){
-    echo -e 'ERROR ARGUMENTS'
+    echo "ERROR ARGUMENTS"
     exit -1
 }
 
-function ERROR_ACCESS(){
-    echo "$1"
-    echo -e 'ERROR ACCESS'
+function FILE_ERROR(){
+    echo "File: $1.sh  -  FILE ERROR"
     exit -2
 }
 
-function ERROR_NOTexist(){
-    echo $1
-    echo -e 'NOT EXISTS'
+function Access_ERROR(){
+    echo "File: $1.sh  -  ACCESS ERROR"
     exit -3
 }
 
-function check_correct(){
-    if [[ -n $4 || -z $3 || -z $2 ]]
-    then ERROR_arguments
+function empty_main(){
+    if [[ $1 = '' ]]
+    then 
+    echo "YOU ENTER EMTY ARGUMENT, TAB 'HELP' TO USE CLOSSARY"
+    exit -4
     fi
-    if ! [[ -e $2 ]]
-    then ERROR_NOTexist
+}
+
+function checkFile(){
+    if ! [ -a $1.sh ] 
+    then
+    File_ERROR $1
     fi
-    if ! [[ -r $2 ]]
-    then ERROR_ACCEESS $2
+    if ! [ -r $1.sh ]
+    then 
+    Access_ERROR
     fi
 }
 
 function DO(){
-    grep -r -s "$3" "$2"
+    case $1 in
+    calc)      
+        ./calc.sh $@
+        ;;
+    search)
+        ./search.sh $@
+        ;;
+    reverse)
+        ./reverse.sh $@
+        ;;
+    log)
+        ./log.sh $@
+        ;;
+    exit)
+        ./exit.sh $@
+        ;;
+    help)
+        ./help.sh $@
+        ;;
+    interactive)
+        ./interactive.sh $@
+        ;;
+    esac
 }
 
-check_correct $@
+empty_main $1
+checkFile $1
+if [ $1 = "strlen" ]
+then 
+    if ! [[ $3 = "int" ]]
+    then
+        if ! [[ $# -eq 2 ]]
+        then 
+        ERROR_arguments
+        fi
+        ./strlen.sh "$2"
+        exit 0
+    fi
+./strlen.sh "$2" $3
+fi
 DO $@
