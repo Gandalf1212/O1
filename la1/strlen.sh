@@ -20,6 +20,6 @@ function DO(){
     echo String size = $(( $size - 2 ))
 }
 
-echo !-strlen-!
+echo "!-strlen-!"
 check_correct "$1"
 DO "$1" $2

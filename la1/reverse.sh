@@ -58,6 +58,6 @@ function DO(){
         echo "-SUCCESS-"
 }
 
-echo  !-revers-!
+echo  "!-revers-!"
 check_correct $@
 DO $@

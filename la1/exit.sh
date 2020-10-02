@@ -31,6 +31,6 @@ function DO(){
     fi
 }
 
-echo !-exit-!
+echo "!-exit-!"
 check_correct $@
 DO $@

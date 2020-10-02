@@ -28,6 +28,6 @@ function DO(){
     done < "$ref"
 }
 
-echo !-log-!
+echo "!-log-!"
 check_correct $@
 DO $@

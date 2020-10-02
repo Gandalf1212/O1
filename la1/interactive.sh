@@ -162,6 +162,6 @@ function DO(){
 }
 
 
-echo !-interactive-!
+echo "!-interactive-!"
 checkALLFiles
 DO
