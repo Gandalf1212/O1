@@ -54,7 +54,7 @@ function DO(){
         tac $2 > reverse2.txt
         echo > $3
         rev reverse2.txt > $3
-        rm reverse.txt
+        rm reverse2.txt
         echo "-SUCCESS-"
 }
 

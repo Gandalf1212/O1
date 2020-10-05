@@ -17,7 +17,7 @@ function ERROR_inquiry(){
 }
 
 function ERROR_value(){
-    echo "ERROR VALUE IT SHOLD BE -256<x<256"
+    echo "ERROR VALUE IT SHOULD BE -256<x<256"
     exit -2
 }
 
@@ -34,7 +34,7 @@ function File_ERROR(){
 function Enter_string(){
     echo 'Enter your string in ""'
 }
-#ошибки
+
 function checkFile(){
     if ! [ -e $1 ] 
     then
@@ -59,21 +59,20 @@ function checkALLFiles(){
     checkFile exit.sh  
     if [[ check_var -eq 1 ]]
     then 
-    echo -e '\033[1;5mPlease, enter...\033[0m'
+    echo "Please, enter..."
     read
     fi
 }
 function Head_request(){
     echo "ENTER YOUR COMMAND"
     echo 
-    echo "Use calculator (calc)"
-    echo "Find word (search)"
-    echo "Reverse one file (revers)"
-    echo "Long of string (strlen)"
-    echo " Read /var/log/anaconda/X.log (log)"
-    echo "Glossary (help)"
-    echo "Exit"
-    echo "Write A,B,C..."
+    echo "A - Use calculator"
+    echo "B - Find word"
+    echo "C - Reverse one file"
+    echo "D - Long of string"
+    echo "E - Read /var/log/anaconda/X.log"
+    echo "F - Help"
+    echo "G - Exit"
 }
 
 function Arguments_request(){
@@ -114,13 +113,13 @@ function DO(){
         clear
         echo "Enter your code: "
         read codeeeee
-        re='^-?[0-9]+$'
-        if ! [[ "$codeeeee" =~ $re || "$codeeeee" =~ $re && "$codeeeee" -gt 256 || "$codeeeee" =~ $re && "$codeeeee" -lt -256 ]]
-        then ERROR_value
-        fi
         if [ -z $codeeeee ]
         then 
         exit 0
+        fi
+        re='^-?[0-9]+$'
+        if ! [[ "$codeeeee" =~ $re || "$codeeeee" =~ $re && "$codeeeee" -gt 256 || "$codeeeee" =~ $re && "$codeeeee" -lt -256 ]]
+        then ERROR_value
         fi
         exit $codeeeee
         ;;
@@ -129,7 +128,7 @@ function DO(){
         break
         ;;
     *)
-        echo "Incorrect inquiry! Please, write A,B,C"
+        echo "Incorrect inquiry! Please, write A,B,C...D"
         ;;
     esac
     done
