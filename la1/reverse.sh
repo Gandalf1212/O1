@@ -25,7 +25,7 @@ function ERROR_creating_access(){
 }
 
 function ERROR_access(){
-    echo "ERROR ACCESS"
+    echo "YOU DO NOT HAVE RIGHTS TO SECOND DIRECTORY"
     exit -5
 }
 

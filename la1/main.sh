@@ -17,7 +17,7 @@ function Access_ERROR(){
 function empty_main(){
     if [[ $1 = '' ]]
     then 
-    echo "YOU ENTER EMTY ARGUMENT, TAB 'HELP' TO USE CLOSSARY"
+    echo "YOU ENTER EMTY ARGUMENT, TAB 'HELP' "
     exit -4
     fi
 }

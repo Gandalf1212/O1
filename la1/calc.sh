@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 function ERROR_inquiry(){
-    echo "INCORRECT INQUIRY"
+    echo "INCORRECT REQUEST"
     exit -1
 }
 
@@ -15,7 +15,7 @@ function ERROR_string(){
 }
 
 function ERROR_null_div(){
-    echo "DIV ON NULL"
+    echo "DIV ON ZERO"
     exit -4
 }
 

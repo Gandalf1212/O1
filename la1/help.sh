@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 function ERROR_arguments(){
-    echo "ERROR ARGUMENT"
+    echo "ERROR ARGUMENT , $@"
     exit -1
 }
 
@@ -25,6 +25,6 @@ function DO(){
   echo "Код ошибки -4 Calculating error"
   echo "Код ошибки -5 Access error"
 }
- 
+
 check_correct $@
 DO

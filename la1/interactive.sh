@@ -12,7 +12,7 @@ function check_sym(){
 }
 
 function ERROR_inquiry(){
-    echo "ERROR INQUIRY"
+    echo "ERROR REQUEST"
     exit -1
 }
 
@@ -151,7 +151,16 @@ function DO(){
     Arguments_request
     read arg1 arg2 arg3
     fi
-
+	
+    if [[ $answer = 'F' ]]
+    then 
+    clear
+    ./help.sh 'help'
+    echo "Please enter..."
+    read
+    continue
+    fi
+    
     clear
     ./main.sh $req $arg1 $arg2 $arg3
 
