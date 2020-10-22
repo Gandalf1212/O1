@@ -1,0 +1,1 @@
+artem       2374  0.0  0.0   9064   660 pts/0    T    12:35   0:00 grep --color=auto -E *\as\*
