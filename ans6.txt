@@ -1,0 +1,8 @@
+top - 09:13:18 up  1:36,  1 user,  load average: 0,12, 0,07, 0,06
+Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0,0 us,  0,0 sy,  0,0 ni,100,0 id,  0,0 wa,  0,0 hi,  0,0 si,  0,0 st
+МиБ Mem :   1987,8 total,     79,8 free,   1322,5 used,    585,5 buff/cache
+МиБ Swap:   1497,1 total,   1404,6 free,     92,5 used.    256,9 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    601 root      20   0  627456  21652   5348 S   0,0   1,1   0:01.58 snapd

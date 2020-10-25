@@ -1,0 +1,12 @@
+1224 /usr/lib/xorg/Xorg 7774208
+1261 /usr/libexec/gnome-session-binary 7692288
+16564 bash 344064
+1224 /usr/lib/xorg/Xorg 7774208
+1261 /usr/libexec/gnome-session-binary 7692288
+17482 bash 0
+1224 /usr/lib/xorg/Xorg 7774208
+1261 /usr/libexec/gnome-session-binary 7692288
+18443 bash 0
+1224 /usr/lib/xorg/Xorg 7774208
+1261 /usr/libexec/gnome-session-binary 7692288
+19364 bash 24576

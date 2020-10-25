@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
-echo " " > ans4.txt
-for pid in $(ls /proc/ | grep -E "[0-9]+")
+for src in $(ps -u root o pid,command | awk '{print $1 "." $2}')
 do
-ser=$(grep -s "sum_exec_runtime" /proc/$pid/sched | awk '{print $3}')
-echo "sum_ex_runt=$ser"
-nrs=$(grep -s "nr_switch" /proc/$pid/sched | awk '{print $3}')
-echo "nr_sw=$nrs"
-art=$(echo "$ser / $nrs" | bc -l)
-echo -e "Average_Running_Time=$art"
-echo "next"
+pid=$(echo $src | cut -d "." -f 1)
+comm=$(echo $src | cut -d "." -f 2)
+mem=$(grep -s "read_bytes" /proc/$pid/io | cut -d ":" -f 2)
+if [[ -n $mem ]]
+then
+echo $pid $comm $mem >> ans7.txt
+fi
 done
+
