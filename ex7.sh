@@ -18,7 +18,7 @@ mem=$(grep $pid2 ans7.txt | awk '{print $3}')
 if [[ -n $mem && -n $mem2 ]]
 then
 memory=$(($mem2 - $mem))
-echo "PID=$pid2 name=$name2 Memory=$memory"
+echo "PID:$pid2 name:$name2 Memory:$memory"
 fi
-done | sort -n -t '=' -k 3 | head -3 > answ7.txt
+done | sort -n -t ':' -k 3 | head -3 > answ7.txt
 rm ans7.txt
