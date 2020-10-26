@@ -1,9 +1,0 @@
-8
-1235:/usr/lib/gdm3/gdm-x-session
-1240:/usr/lib/xorg/Xorg
-1271:/usr/libexec/gnome-session-binary
-13814:bash
-41328:bash
-41332:ps
-41333:sed
-41334:awk
