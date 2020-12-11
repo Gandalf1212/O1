@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-count=1
+count=0
 while true
 do
-count=$count*3
+count=$count+1
 done
