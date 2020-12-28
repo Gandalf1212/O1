@@ -17,7 +17,7 @@ while read line; do
         	echo "No previous directory. Restoring at ~"
         	dest="~/$1"
         fi
-    	ln -s "~/.trash/$deleteName" $dest &&
+    	ln "~/.trash/$deleteName" $dest &&
         rm ~/.trash/$deleteName &&
         {
       	sed -i "/$deleteName/d" ./.trash.log
