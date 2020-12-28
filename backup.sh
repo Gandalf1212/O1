@@ -25,7 +25,7 @@ else
 	echo "The backup was updated:"$curDate >> ~/backup-report
 	for file in $(ls ~/source/); do
 		ct=~/$dir_name"/"$file
-		if [ ! -f $ct ];
+		if [[ ! -f $ct ]];
 		then
 			cp ~/source/$file $ct
 			echo "New file "$file" was backed-up" >> ~/backup-report

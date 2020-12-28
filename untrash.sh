@@ -1,7 +1,7 @@
 #!/bin/bash
 line=""
 while read line; do
-	if  ! grep -q $1 <<< $line; then
+	if [[ ! grep -q $1 <<< $line ]]; then
 		continue
 	fi
 
