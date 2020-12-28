@@ -10,5 +10,5 @@ i=0
 while [[ -e "./.trash/$1$i" ]] ; do
     let "i = i++"
 done
-ln -s ./$1 ~/.trash/$1$i &&
+ln ./$1 ~/.trash/$1$i &&
 rm $1 && echo "$(realpath $1) $1$i" >> ./.trash.log
