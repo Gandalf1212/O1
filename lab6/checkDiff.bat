@@ -1,3 +1,3 @@
 @echo off
 
-fc /A listofserv.txt updatelistofserv.txt > delta.txt
+fc /A Serves.txt newServes.txt > Difference.txt
