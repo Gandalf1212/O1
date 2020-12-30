@@ -1,39 +1,43 @@
 #! /usr/bin/env bash
 
-command="+"
-answer=1
-(tail -f pipe5) |
-while true 
-do
-    read line
-    case $line in 
+>pipe
+n=1
+cmd="+"
+tail -f pipe | while true; do
+	read LINE
+	case "$LINE" in
+		"m")
+			cmd="m"
+			echo Command is "*"
+			;;
+		"+")
+			cmd="+"
+			echo Command is +
+			;;
+		"QUIT")
+			echo "Finished by QUIT command"
+			killall tail
+			exit 0
+			;;
+		[0-9]*)
+                        case $cmd in
+                                "m")
+                                        echo "Multiplying" $n and $LINE
+                                        let "n = $n * $LINE"
+                                        echo Result: $n
+                                        ;;
+                                "+")
+                                        echo Adding $n and $LINE
+                                        let "n = $n + $LINE"
+                                        echo Result: $n
+                                        ;;
+                        esac
+                        ;;
+		*)
+                        echo "error input"
+                        killall tail
+                        exit 1
+                        ;;
 
-              "+")
-                   command="+"
-                   echo "plusing numbers"
-;;
-                 "m")
-                 command="*"
-                 echo "Multiplying numbers"
-;;
-          [0-9]*)
-                 if [[ $command == "+" ]]
-                          then
-                      let answer=$answer+$line
-                          else
-                      let answer=$answer*$line
-                 fi
-            echo "$answer"
-;;
-         "QUIT")
-                 killall tail
-                 echo "planed stop"
-                 exit 0
-;;
-             *)
-             killall tail
-             echo "input data error"
-             exit 1
-;;
-esac
-done
+	esac
+done 
