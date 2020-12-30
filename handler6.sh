@@ -4,12 +4,6 @@ echo $$ > pipe6
 answer=1
 cmd="+"
 
-sigterm()
-{
-     echo "exit"
-     exit
-}
-
 user1()
 {
      cmd="+"
@@ -18,6 +12,12 @@ user1()
 user2()
 {
      cmd="*"
+}
+
+sigterm()
+{
+     echo "exit"
+     exit
 }
 
 trap 'sigterm' SIGTERM
@@ -29,12 +29,11 @@ do
       case $command in 
       "+")
           let answer=$answer+2
-          echo $answer
       ;;
       "*")
           let answer=$answer*2
-          echo $answer
       ;;
       esac
-sleep 2
+sleep 1
+echo $answer
 done
