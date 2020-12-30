@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
-count=0
-while true
-do
-count=$count+1
+
+num=0
+while true; do
+let "num=$num+2"
 done
